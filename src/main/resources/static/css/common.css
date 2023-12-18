@@ -1,0 +1,20 @@
+:root {
+  --mdb-primary-rgb: 69, 125, 88;
+}
+
+.scrollable-element {
+  padding-bottom: 60px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.header-custom {
+    border-color: rgb(var(--mdb-primary-rgb));
+    background: linear-gradient(90deg, rgb(var(--mdb-primary-rgb)), transparent);
+}
+
+.navbar-nav .show > .nav-link, .navbar-nav .nav-link.active {
+    color: rgb(var(--mdb-primary-rgb));
+}

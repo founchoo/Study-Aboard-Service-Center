@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="base/layout.html">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Study Abroad Service Center - University</title>
+	<script src="js/index.js"></script>
+	<link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+<header th:replace="public/header :: header"></header>
+
+<div class="container animate__animated animate__fadeIn">
+
+	<div class="d-flex scrollable-element" style="top: 80px;">
+
+		<div th:replace="public/university :: university-list"></div>
+
+		<div id="predict-ele" onscroll="listenOnPredictEleScroll(this);" class="px-2 overflow-y-scroll" style="flex: 1; height: 100vh;">
+			<div class="card shadows-3 mt-2">
+				<div class="card-header">
+					<h5 class="mb-0">Predict</h5>
+				</div>
+				<div class="card-body">
+					<p class="card-text">
+						Predict the universities that you can apply.
+						<br>Input your IELTS or TOEFL score, toggle to change.
+					</p>
+
+					<div class="d-flex flex-row align-items-center mb-3">
+						<i onclick="toggleScoreKind(this);" class="me-2 text-primary fas fa-xl fa-toggle-on"></i>
+						<input
+								id="ielts"
+								oninput="ieltsCheck(this);"
+								type="text"
+								class="form-control visually-hidden"
+								placeholder="IELTS"
+								aria-label="IELTS"
+						/>
+						<input
+								id="toefl"
+								oninput="toeflCheck(this);"
+								type="text"
+								class="form-control"
+								placeholder="TOEFL"
+								aria-label="TOEFL"
+						/>
+					</div>
+					<div>
+						<a id="predict" class="btn btn-primary disabled me-1" onclick="predict();">Predict</a>
+						<a class="mt-2 btn btn-primary" onclick="reset();showSuccessToast();">Reset</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="shadow-3 mt-3 p-3">
+				The badge besides the rank will be shown after you predict.
+				<ul class="list-unstyled">
+					<li class="m-1">
+						<span class="badge badge-danger">Danger</span> indicates you have a very low possibility.
+					</li>
+					<li class="m-1">
+						<span class="badge badge-warning">Warning</span> indicates you have a low possibility.
+					</li>
+					<li class="m-1">
+						<span class="badge badge-info">Info</span> indicates you have a high possibility.
+					</li>
+					<li class="m-1">
+						<span class="badge badge-success">Success</span> indicates you have a very high possibility.
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="goTop" onclick="goTop();" class="fixed-action-btn">
+		<a class="btn btn-floating text-white btn-lg bg-primary d-flex align-items-center justify-content-center">
+			<i class="fas fa-arrow-up"></i>
+		</a>
+	</div>
+
+</div>
+
+<div id="success-toast" class="toast toast-fixed fade toast-success" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="false" data-mdb-position="top-right" data-mdb-append-to-body="true" data-mdb-stacking="false" data-mdb-width="350px" data-mdb-color="info" style="width: 350px;display: block;top: unset;right: 10px;bottom: 10px;left: 50%;transform: translate(-50%);">
+	<div class="toast-header toast-success">
+		<i class="fas fa-check fa-lg me-2"></i>
+		<strong class="me-auto">Success</strong>
+		<small>Just now</small>
+	</div>
+	<div class="toast-body">Reset done.</div>
+</div>
+
+<div id="info-toast" class="toast toast-fixed fade toast-info" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="false" data-mdb-position="top-right" data-mdb-append-to-body="true" data-mdb-stacking="false" data-mdb-width="350px" data-mdb-color="info" style="width: 350px;display: block;top: unset;right: 10px;bottom: 10px;left: 50%;transform: translate(-50%);">
+	<div class="toast-header toast-info">
+		<i class="fas fa-info-circle fa-lg me-2"></i>
+		<strong class="me-auto">Info</strong>
+		<small>Just now</small>
+	</div>
+	<div class="toast-body">Loading more data...</div>
+</div>
+
+<div id="error-toast" class="toast toast-fixed fade toast-danger" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="false" data-mdb-position="top-right" data-mdb-append-to-body="true" data-mdb-stacking="false" data-mdb-width="350px" data-mdb-color="info" style="width: 350px;display: block;top: unset;right: 10px;bottom: 10px;left: 50%;transform: translate(-50%);">
+	<div class="toast-header toast-danger">
+		<i class="fas fa-exclamation-circle fa-lg me-2"></i>
+		<strong class="me-auto">Error</strong>
+		<small>Just now</small>
+	</div>
+	<div class="toast-body">Invalid input, please retry.</div>
+</div>
+
+<footer th:replace="public/footer :: footer"></footer>
+</body>
+
+</html>

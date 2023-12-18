@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="base/layout.html">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Study Abroad Service Center - Consultant</title>
+	<script src="js/consultant.js"></script>
+	<link href="css/consultant.css" rel="stylesheet">
+</head>
+
+<body>
+<header th:replace="public/header :: header"></header>
+<div class="container scrollable-element animate__animated animate__fadeIn">
+	<div class="row my-3">
+		<div class="col col-md-9 pe-2">
+			<div class="card" id="chat2">
+				<div class="card-header d-flex align-items-center">
+					<h5 id="ai-header" class="mb-0 me-2">Ask anything</h5>
+					<div id="ai-thinking" class="spinner-grow spinner-grow-sm" role="status" style="visibility: hidden;">
+						<span class="visually-hidden">Loading...</span>
+					</div>
+				</div>
+				<div id="list" class="card-body" style="height: 400px; overflow-y: scroll;">
+				</div>
+				<div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
+					<input onkeydown="add();" type="text" class="form-control form-control-lg" id="exampleFormControlInput1"
+					       placeholder="Type message (Enter to send)" spellcheck="false" data-ms-editor="true">
+				</div>
+			</div>
+		</div>
+		<div class="col col-md-3 ps-2">
+			<div class="card">
+				<div class="card-header">
+					<h5 class="mb-0">We are always here</h5>
+				</div>
+				<div class="card-body">
+					<p class="card-text">We provide 24/7 support, contact with us anytime and anywhere</p>
+					<ul class="list-unstyled">
+						<li class="mb-1"><i class="fas fa-phone me-2 text-primary"></i><a href="tel:+8602712345678910">+86-027-12345678910</a></li>
+						<li class="mb-1"><i class="fas fa-envelope me-2 text-primary"></i><a href="mailto: helpcenter@sasc.com">helpcenter@sasc.com</a></li>
+						<li class="mb-1"><i class="fa-brands fa-facebook me-2 text-primary"></i>
+							<a target="_blank" href="https://www.facebook.com/sasc">sasc</a>
+						</li>
+					</ul>
+				</div>
+				<div class="card-footer text-muted">
+					AI chat bot supported by
+					<a target="_blank" href="https://brainshop.ai/"> BrainShop</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer th:replace="public/footer :: footer"></footer>
+</body>
+
+</html>

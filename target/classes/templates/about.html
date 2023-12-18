@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="base/layout.html">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Study Abroad Service Center - About</title>
+	<script src="js/about.js"></script>
+	<link href="css/about.css" rel="stylesheet">
+</head>
+
+<body>
+<header th:replace="public/header :: header"></header>
+<div class="container d-flex align-items-center scrollable-element animate__animated animate__fadeIn">
+	<div class="row d-flex align-items-center m-4">
+
+		<div class="text-white note mb-2 mt-4 header-custom">
+			<h4 style="margin-bottom: 0;">Intro</h4>
+		</div>
+
+		<div>
+			<p>Study Abroad Service Center is a website that helps students find the best university for them.
+			<br>It is a project for the course "Web Technology" at the DGTI, Hubei University of Technology.
+			<br>It is developed by Group 6.</p>
+		</div>
+
+		<div class="text-white note mb-2 mt-4 header-custom">
+			<h4 style="margin-bottom: 0;">Members</h4>
+		</div>
+
+		<div th:replace="public/profile :: profile"></div>
+
+		<div class="text-white note mb-2 mt-4 header-custom">
+			<h4 style="margin-bottom: 0;">Thanks</h4>
+		</div>
+
+		<div th:replace="public/tech :: tech"></div>
+
+	</div>
+
+</div>
+<footer th:replace="public/footer :: footer"></footer>
+</body>
+
+</html>

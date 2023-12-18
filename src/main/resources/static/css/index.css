@@ -1,0 +1,19 @@
+.show-element {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.hide-element {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+#university-ele > div:hover {
+    animation-name: zoomOut;
+}
+@keyframes zoomOut {
+  to {
+      transform: scale(10);
+      opacity: 0;
+  }
+}

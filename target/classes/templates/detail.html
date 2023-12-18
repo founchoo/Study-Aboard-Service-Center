@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="base/layout.html">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:text="'Study Abroad Service Center - '+${university.name}"></title>
+</head>
+
+<body>
+<header th:replace="public/header :: header"></header>
+<div class="container scrollable-element animate__animated animate__fadeIn">
+
+	<div class="d-flex align-items-center mb-2 mt-4">
+		<img class="d-md-inline-block" th:src="${university.logoOut}">
+		<h1 class="d-md-inline-block ms-4" th:text="${university.name}"></h1>
+	</div>
+
+	<div class="text-white note mb-2 mt-4 header-custom">
+		<h4 style="margin-bottom: 0;">Overall</h4>
+	</div>
+
+	<ul class="ms-3 list-unstyled">
+
+		<li class="mb-1">
+			<i class="fas fa-circle-info me-2 text-primary"></i>
+			<label th:text="'Rank '+${university.rank}">Rank</label>
+		</li>
+		<li th:unless="${university.toefl eq 0}" class="mb-1">
+			<i class="fas fa-circle-info me-2 text-primary"></i>
+			<span th:text="'TOEFL '+${university.toefl}"></span>
+		</li>
+		<li th:unless="${university.ielts eq 0.0}" class="mb-1">
+			<i class="fas fa-circle-info me-2 text-primary"></i>
+			<span th:text="'IELTS '+${university.ielts}"></span>
+		</li>
+	</ul>
+
+	<div class="text-white note mb-2 mt-4 header-custom">
+		<h4 style="margin-bottom: 0;">Majors</h4>
+	</div>
+
+	<div class="d-flex row align-items-center justify-content-center">
+		<div th:each="item : ${university.majorsOut}" class="col-md-4" style="padding-left: 0; padding-right: 0;">
+			<div class="card m-2 text-center align-items-center justify-content-center" style="height: 8rem;">
+				<label th:text="${item}" class="m-4"></label>
+			</div>
+		</div>
+	</div>
+
+</div>
+<footer th:replace="public/footer :: footer"></footer>
+</body>
+</html>

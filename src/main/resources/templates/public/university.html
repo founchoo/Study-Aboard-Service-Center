@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="base/layout.html">
+
+<body>
+
+<div th:fragment="university-list" id="university-ele" onscroll="listenOnUniversityEleScroll(this);" style="flex: 2; height: 100vh;" class="overflow-y-scroll">
+
+	<div class="p-2" th:each="item : ${list}">
+		<div class="bg-image hover-overlay ripple card rounded university-item">
+			<div class="p-2 row text-center d-flex align-items-center">
+				<div class="col-md-2">
+					<span th:id="'rank'+${itemStat.index}" class="badge badge-light" th:text="'Rank '+${item.rank}"></span>
+					<span th:id="'possibility'+${itemStat.index}" class="badge visually-hidden"></span>
+				</div>
+				<div class="col-md-1">
+					<img th:src="${item.logoOut}" height="50px" class="rounded-start" alt="...">
+				</div>
+				<label class="col-md-6" th:text="${item.name}"></label>
+				<div class="col-md-3">
+					<span th:id="'ielts'+${itemStat.index}" th:unless="${item.ielts eq 0.0}" class="badge badge-light" th:text="'IELTS '+${item.ielts}"></span>
+					<span th:id="'toefl'+${itemStat.index}" th:unless="${item.toefl eq 0}" class="badge badge-light" th:text="'TOEFL '+${item.toefl}"></span>
+				</div>
+			</div>
+			<a th:href="'/detail?id='+${item.id}">
+				<div class="mask" style="background: hsl(0, 0%, 100%, 0.5);"></div>
+			</a>
+		</div>
+	</div>
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wt6.sasc.mapper.UniversityMapper">
+
+    <select id="getAllUniversity" resultType="com.wt6.sasc.entity.University">
+        SELECT *
+        FROM university;
+    </select>
+    <select id="addUniversity" resultType="com.wt6.sasc.entity.University">
+        INSERT INTO university (id, name, rank, logo, majors, ielts, toefl)
+        VALUES (#{id}, #{name}, #{rank}, #{logoIn}, #{majorsIn}, #{ielts}, #{toefl});
+    </select>
+    <select id="getUniversityById" resultType="com.wt6.sasc.entity.University">
+        SELECT *
+        FROM university
+        WHERE id = #{id};
+    </select>
+    <select id="getUniversityByPageIndex" resultType="com.wt6.sasc.entity.University">
+        SELECT *
+        FROM university
+        LIMIT #{pageSize} OFFSET ${pageIndex * pageSize};
+    </select>
+    <update id="updateUniversity">
+        UPDATE university
+        SET ielts = #{ielts}, toefl = #{toefl}
+        WHERE id = #{id};
+    </update>
+</mapper>

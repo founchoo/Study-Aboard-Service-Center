@@ -1,0 +1,31 @@
+server:
+  port: 9842
+  max-http-header-size: 102400
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://110.41.176.195:3306/sasc
+    username: sasc
+    password: eTNBLTD7jthkxhtk
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  # yml中配置静态文件的url
+  mvc:
+    static-path-pattern: /**
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
