@@ -8,6 +8,9 @@ This is a final project for course "Web Technology".
 
 ![image](https://github.com/founchoo/sasc/assets/24630338/e9ec2227-6d3c-4718-96fe-47355e03c188)
 
+## Notes
+
+Please note that all the email and tel number is mock.
 
 ## Techs that we use
 Spring Boot, Thymeleaf, Material Design for Bootstrap and some other less important compoents.
